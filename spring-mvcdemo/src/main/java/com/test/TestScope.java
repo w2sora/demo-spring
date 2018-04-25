@@ -9,11 +9,11 @@ import java.util.Date;
 
 public class TestScope {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestScope.class);
+    private static Logger logger = LoggerFactory.getLogger(TestScope.class);
 
     public static void main(String[] args) {
         ApplicationContext context = new FileSystemXmlApplicationContext(
-                "spring-mvcdemo/src/main/webapp/WEB-INF/applicationContext.xml");
+                "classpath:web/applicationContext.xml");
 
         Date date1 = (Date) context.getBean("singleton");
         Date date2 = (Date) context.getBean("prototype");
