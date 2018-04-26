@@ -22,6 +22,7 @@
 
         <spring.version>4.3.16.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
+        <log4j.version>2.10.0</log4j.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jedis.version>2.9.0</jedis.version>
         <mysql-connector.version>6.0.6</mysql-connector.version>
@@ -43,6 +44,26 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-web</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
             <!-- JCL桥接器 将Apache Commons Logging的日志输出重定向到SLF4J -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -61,7 +82,7 @@
                 <artifactId>jul-to-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            <!-- Log4j绑定器 SLF4J将日志交给Log4j处理，不能和Log4j桥接器同时使用 -->
+            <!-- Log4j绑定器 将日志交给Log4j处理，不能和Log4j桥接器同时使用 -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
