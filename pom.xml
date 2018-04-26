@@ -24,6 +24,7 @@
         <junit.version>4.12</junit.version>
         <log4j.version>2.10.0</log4j.version>
         <slf4j.version>1.7.25</slf4j.version>
+        <jackson.version>2.9.5</jackson.version>
         <jedis.version>2.9.0</jedis.version>
         <mysql-connector.version>6.0.6</mysql-connector.version>
         <servlet.version>4.0.0</servlet.version>
@@ -63,6 +64,17 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
                 <version>${log4j.version}</version>
+            </dependency>
+            <!-- YAML解析器 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
             <!-- JCL桥接器 将Apache Commons Logging的日志输出重定向到SLF4J -->
             <dependency>
