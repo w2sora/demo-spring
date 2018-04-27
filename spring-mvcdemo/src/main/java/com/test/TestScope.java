@@ -21,7 +21,7 @@ public class TestScope {
         Date date3 = (Date) context.getBean("singleton");
         Date date4 = (Date) context.getBean("prototype");
 
-        logger.error("========== singleton: {}", date1 == date3);
-        logger.error("========== prototype: {}", date2 == date4);
+        logger.debug("========== singleton: {}", date1 == date3);
+        logger.debug("========== prototype: {}", date2 == date4);
     }
 }
