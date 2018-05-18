@@ -5,14 +5,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.BlockingQueue;
 
-/**
- * Created by weiwei on 2017/5/26.
- */
 public class Consumer implements Runnable {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Consumer.class);
+    private static final Logger log = LoggerFactory.getLogger(Consumer.class);
 
-    protected BlockingQueue queue = null;
+    private BlockingQueue queue = null;
 
     public Consumer(BlockingQueue queue) {
         this.queue = queue;
@@ -20,12 +17,11 @@ public class Consumer implements Runnable {
 
     public void run() {
         try {
-            LOGGER.info(queue.take().toString());
-            LOGGER.info(queue.take().toString());
-            LOGGER.info(queue.take().toString());
+            for (int i = 0; i < 3; i++) {
+                log.info(queue.take().toString());
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
 }
