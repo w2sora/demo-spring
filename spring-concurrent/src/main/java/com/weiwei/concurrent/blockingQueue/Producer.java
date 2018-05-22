@@ -1,13 +1,10 @@
-package com.weiwei.blockingQueue;
+package com.weiwei.concurrent.blockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 
-/**
- * Created by weiwei on 2017/5/26.
- */
 public class Producer implements Runnable {
 
-    protected BlockingQueue queue = null;
+    private BlockingQueue queue = null;
 
     public Producer(BlockingQueue queue) {
         this.queue = queue;
@@ -15,11 +12,10 @@ public class Producer implements Runnable {
 
     public void run() {
         try {
-            queue.put("1");
-            Thread.sleep(1000);
-            queue.put("2");
-            Thread.sleep(1000);
-            queue.put("3");
+            for (int i = 0; i < 3; i++) {
+                queue.put(i + 1);
+                Thread.sleep(1000);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
