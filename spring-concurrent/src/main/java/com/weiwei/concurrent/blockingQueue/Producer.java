@@ -1,27 +1,24 @@
-package com.weiwei.blockingQueue;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.weiwei.concurrent.blockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 
-public class Consumer implements Runnable {
-
-    private static final Logger log = LoggerFactory.getLogger(Consumer.class);
+public class Producer implements Runnable {
 
     private BlockingQueue queue = null;
 
-    public Consumer(BlockingQueue queue) {
+    public Producer(BlockingQueue queue) {
         this.queue = queue;
     }
 
     public void run() {
         try {
             for (int i = 0; i < 3; i++) {
-                log.info(queue.take().toString());
+                queue.put(i + 1);
+                Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
 }

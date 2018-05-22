@@ -1,4 +1,4 @@
-package com.weiwei.blockingQueue;
+package com.weiwei.concurrent.blockingQueue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
