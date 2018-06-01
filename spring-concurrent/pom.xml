@@ -45,10 +45,6 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -84,4 +80,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
