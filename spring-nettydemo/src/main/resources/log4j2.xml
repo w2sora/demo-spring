@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <!-- <Configuration status="warn" monitorInterval="300"> -->
+    <!-- status: 输出Log4j2自身内部信息，可以不设置，默认为warn
+         monitorInterval: 自动刷新配置时间间隔（秒）
+    -->
+    <properties>
+        <!-- 自定义参数列表 -->
+        <property name="LOG_HOME">C:/Users/weiwei/Documents/Work/Projects/logs</property>
+        <property name="LOG_NAME">netty-demo</property>
+    </properties>
+    <Appenders>
+        <Console name="console" target="system_out">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} --> [%t] %c.%M(%L): %msg%n"/>
+        </Console>
+        <RollingRandomAccessFile name="logFile"
+                                 fileName="${LOG_HOME}/${LOG_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${LOG_NAME}.%d{yyyy-MM-dd}.%i.log.gz">
+            <!-- filePattern: 发生Rolling时，文件的转移（是否生成压缩包，支持ZIP、GZ等格式）和重命名规则，
+                              其中 %d{yyyy-MM-dd} 精确到的最小单位与 TimeBasedTriggeringPolicy 结合使用可确定时间间隔
+            -->
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} --> [%t] %c.%M(%L): %msg%n"/>
+            <Policies>
+                <!-- 时间间隔，多久产生一个新日志文件并生成备份 -->
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <!-- 日志文件多大后产生一个新日志文件并生成备份 -->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <!-- 每个时间间隔内最多保留多少个文件（或者压缩包） -->
+            <DefaultRolloverStrategy max="100"/>
+            <!-- <Filters> -->
+                <!-- 日志级别: TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
+                <!-- 拒绝 ERROR 和以上级别的日志，接受 INFO 和以上级别的日志，取交集，即接受 INFO 和 WARN 级别的日志 -->
+                <!-- <ThresholdFilter level="error" onMatch="deny" onMisMatch="accept"/> -->
+                <!-- <ThresholdFilter level="info" onMatch="accept"/> -->
+            <!-- </Filters> -->
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <!-- additivity: 定义该logger中输出的日志是否延伸到父层logger，即在父层再输出一次 -->
+        <!-- <Logger name="myLog" level="debug" additivity="false"> -->
+            <!-- <AppenderRef ref="logFile"/> -->
+        <!-- </Logger> -->
+        <Root level="debug">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="logFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
