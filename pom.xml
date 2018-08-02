@@ -23,6 +23,7 @@
 
         <spring.version>4.3.16.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
+        <netty.version>4.1.25.Final</netty.version>
         <log4j.version>2.10.0</log4j.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jackson.version>2.9.5</jackson.version>
@@ -44,6 +45,11 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -164,4 +170,5 @@
             </plugins>
         </pluginManagement>
     </build>
+
 </project>
