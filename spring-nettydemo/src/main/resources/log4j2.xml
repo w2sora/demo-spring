@@ -6,7 +6,7 @@
     -->
     <properties>
         <!-- 自定义参数列表 -->
-        <property name="LOG_HOME">C:/Users/weiwei/Documents/Work/Projects/logs</property>
+        <property name="LOG_HOME">D:/Work/Projects/logs</property>
         <property name="LOG_NAME">netty-demo</property>
     </properties>
     <Appenders>

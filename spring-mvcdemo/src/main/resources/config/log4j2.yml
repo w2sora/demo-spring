@@ -2,7 +2,7 @@ configuration:
   properties:
     property:
       - name: LOG_HOME
-        value: C:/Users/weiwei/Documents/Work/Projects/logs
+        value: D:/Work/Projects/logs
       - name: LOG_NAME
         value: mvc-demo
 
