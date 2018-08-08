@@ -41,7 +41,7 @@
         <!-- <Logger name="myLog" level="debug" additivity="false"> -->
             <!-- <AppenderRef ref="logFile"/> -->
         <!-- </Logger> -->
-        <Root level="debug">
+        <Root level="info">
             <AppenderRef ref="console"/>
             <AppenderRef ref="logFile"/>
         </Root>
