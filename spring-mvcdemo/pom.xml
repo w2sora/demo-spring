@@ -20,12 +20,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -38,11 +32,6 @@
         <dependency>
             <groupId>com.github.stefanbirkner</groupId>
             <artifactId>system-rules</artifactId>
-        </dependency>
-        <!-- JCL桥接器 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
         </dependency>
         <!-- 使用Log4j2 避免Log4j 1.x在高并发情况下出现死锁导致CPU使用率异常飙升等问题 -->
         <!-- Log4j2核心包 2个 -->

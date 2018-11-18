@@ -37,6 +37,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring相关依赖 begin -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
@@ -53,6 +54,7 @@
                 <version>${spring.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- Spring相关依赖 end -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -65,16 +67,14 @@
                 <version>${system-rules.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- Netty依赖包 -->
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
+            <!-- 使用Log4j 2.X 避免1.X版本高并发下出现死锁导致CPU使用率异常飙升等问题 -->
+            <!-- Log4j2核心包×2 -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
@@ -82,9 +82,22 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!-- Log4j2 Web支持 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-web</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
+            <!-- SLF4J核心包 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- Log4j 2.X以上版本使用的桥接器，调用SLF4J API时，底层调用Log4j的实现 -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
@@ -101,35 +114,38 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
-            <!-- JCL桥接器 将Apache Commons Logging的日志输出重定向到SLF4J -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <!-- Log4j桥接器 将Log4j的日志输出重定向到SLF4J -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <!-- JUL桥接器 将Java Util Logging(JUL)的日志输出重定向到SLF4J -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <!-- Log4j绑定器 将日志交给Log4j处理，不能和Log4j桥接器同时使用 -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
+            <!-- 经实验，以下四项在配置了Log4j2的工程中完全不需要导入 -->
+            <!-- Log4j 1.X使用的桥接器，调用SLF4J API时，底层调用Log4j的实现 -->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>slf4j-log4j12</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+            <!--</dependency>-->
+            <!-- 逆桥接器 应用中调用Commons Logging API时会调用SLF4J API -->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>jcl-over-slf4j</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+            <!--</dependency>-->
+            <!-- 逆桥接器 应用中调用java.util.logging API时调用SLF4J API -->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>jul-to-slf4j</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+            <!--</dependency>-->
+            <!-- 逆桥接器 应用中调用Log4j API时调用SLF4J API，不可与slf4j-log4j12同时使用，会陷入死循环 -->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>log4j-over-slf4j</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+            <!--</dependency>-->
+            <!-- Redis依赖包 -->
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
             </dependency>
+            <!-- MySQL驱动包 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>

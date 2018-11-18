@@ -1,5 +1,7 @@
 package com.weiwei.controller.scope;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import java.util.Date;
 @Controller
 @RequestMapping("/scope")
 public class ScopeTestController {
+    private static final Logger logger = LoggerFactory.getLogger(ScopeTestController.class);
 
     @GetMapping("/test1")
     @ResponseBody
@@ -21,7 +24,7 @@ public class ScopeTestController {
         Date date1 = (Date) context.getBean("singletonBean");
         Date date2 = (Date) context.getBean("singletonBean");
 
-        System.out.println("Singleton: " + String.valueOf(date1 == date2));
+        logger.info("Singleton: {}", date1 == date2);
         return String.valueOf(date1 == date2);
     }
 
@@ -33,7 +36,7 @@ public class ScopeTestController {
         Date date1 = (Date) context.getBean("prototypeBean");
         Date date2 = (Date) context.getBean("prototypeBean");
 
-        System.out.println("Prototype: " + String.valueOf(date1 == date2));
+        logger.info("Prototype: {}", date1 == date2);
         return String.valueOf(date1 == date2);
     }
 }

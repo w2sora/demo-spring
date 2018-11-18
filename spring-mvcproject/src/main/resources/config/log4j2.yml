@@ -1,0 +1,34 @@
+configuration:
+  properties:
+    property:
+    - name: LOG_HOME
+      value: D:/Work/Projects/logs
+    - name: LOG_NAME
+      value: mvc-project
+
+  appenders:
+    console:
+      name: console
+      target: system_out
+      patternLayout:
+        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c.%M(%L): %msg%n"
+    rollingRandomAccessFile:
+      name: logFile
+      fileName: ${LOG_HOME}/${LOG_NAME}.log
+      filePattern: ${LOG_HOME}/$${date:yyyy-MM}/${LOG_NAME}.%d{yyyy-MM-dd}.%i.log.gz
+      patternLayout:
+        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c.%M(%L): %msg%n"
+      policies:
+        timeBasedTriggeringPolicy:
+          interval: 1
+        sizeBasedTriggeringPolicy:
+          size: 100 MB
+      defaultRolloverStrategy:
+        max: 100
+
+  loggers:
+    root:
+      level: debug
+      appenderRef:
+      - ref: console
+      - ref: logFile
