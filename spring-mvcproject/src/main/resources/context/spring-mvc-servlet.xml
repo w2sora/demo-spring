@@ -12,6 +12,7 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
     </context:component-scan>
 
+    <!-- 配置该标签用于处理请求映射，决定是哪个Controller的哪个方法来处理当前请求，以及相关的异常处理 -->
     <!-- 该标签如果不配置，也可以正常处理请求映射，原因可Debug DispatcherServlet的源码，它会从DispatcherServlet.properties加载默认配置 -->
     <mvc:annotation-driven/>
 </beans>
