@@ -11,13 +11,13 @@ configuration:
       name: console
       target: system_out
       patternLayout:
-        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c.%M(%L): %msg%n"
+        pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %highlight{%c{1.}.%M(%L)}: %msg%n"
     rollingRandomAccessFile:
       name: logFile
       fileName: ${LOG_HOME}/${LOG_NAME}.log
       filePattern: ${LOG_HOME}/$${date:yyyy-MM}/${LOG_NAME}.%d{yyyy-MM-dd}.%i.log.gz
       patternLayout:
-        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c.%M(%L): %msg%n"
+        pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %c{1.}.%M(%L): %msg%n"
       policies:
         timeBasedTriggeringPolicy:
           interval: 1

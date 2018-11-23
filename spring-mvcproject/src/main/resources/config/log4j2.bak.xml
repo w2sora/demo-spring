@@ -11,7 +11,7 @@
     </properties>
     <Appenders>
         <Console name="console" target="system_out">
-            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c.%M(%L): %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %highlight{%c{1.}.%M(%L)}: %msg%n"/>
         </Console>
         <RollingRandomAccessFile name="logFile"
                                  fileName="${LOG_HOME}/${LOG_NAME}.log"
@@ -19,7 +19,7 @@
             <!-- filePattern: 发生Rolling时，文件的转移（是否生成压缩包，支持ZIP、GZ等格式）和重命名规则，
                               其中 %d{yyyy-MM-dd} 精确到的最小单位与 TimeBasedTriggeringPolicy 结合使用可确定时间间隔
             -->
-            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c.%M(%L): %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %c{1.}.%M(%L): %msg%n"/>
             <Policies>
                 <!-- 时间间隔，多久产生一个新日志文件并生成备份 -->
                 <TimeBasedTriggeringPolicy interval="1"/>

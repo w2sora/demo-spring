@@ -41,7 +41,9 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!-- Servlet上下文配置 可配置多个Servlet上下文，如果不配置location，默认取WEB-INF/{servlet-name}-servlet.xml -->
+    <!-- Servlet上下文配置 可配置多个Servlet上下文，如果不配置location，则默认取WEB-INF/{servlet-name}-servlet.xml -->
+    <!-- 根据servlet-mapping，所有请求都会被拦截并交给DispatcherServlet的
+         service(ServletRequest request, ServletResponse response)方法去处理，此方法继承自Web容器的HttpServlet类 -->
     <servlet>
         <servlet-name>spring-mvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
