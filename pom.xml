@@ -31,6 +31,7 @@
         <jackson.version>2.9.5</jackson.version>
         <jedis.version>2.9.0</jedis.version>
         <mysql-connector.version>6.0.6</mysql-connector.version>
+        <druid.version>1.1.12</druid.version>
         <activemq-core.version>5.7.0</activemq-core.version>
         <activemq-pool.version>5.15.3</activemq-pool.version>
     </properties>
@@ -117,27 +118,27 @@
             <!-- 经实验，以下四项在配置了Log4j2的工程中完全不需要导入 -->
             <!-- Log4j 1.X使用的桥接器，调用SLF4J API时，底层调用Log4j的实现 -->
             <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>slf4j-log4j12</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-log4j12</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
             <!--</dependency>-->
             <!-- 逆桥接器 应用中调用Commons Logging API时会调用SLF4J API -->
             <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>jcl-over-slf4j</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>jcl-over-slf4j</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
             <!--</dependency>-->
             <!-- 逆桥接器 应用中调用java.util.logging API时调用SLF4J API -->
             <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>jul-to-slf4j</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>jul-to-slf4j</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
             <!--</dependency>-->
             <!-- 逆桥接器 应用中调用Log4j API时调用SLF4J API，不可与slf4j-log4j12同时使用，会陷入死循环 -->
             <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>log4j-over-slf4j</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>log4j-over-slf4j</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
             <!--</dependency>-->
             <!-- Redis依赖包 -->
             <dependency>
@@ -150,6 +151,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-connector.version}</version>
+            </dependency>
+            <!-- Druid数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
