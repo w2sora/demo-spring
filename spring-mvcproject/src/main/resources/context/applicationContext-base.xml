@@ -18,6 +18,18 @@
     <!-- 开启事务注解的支持 -->
     <tx:annotation-driven transaction-manager="txManager"/>
 
+    <!--  -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mybatis/com/weiwei/mapper/*Mapper.xml"/>
+    </bean>
+
+    <!--  -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.weiwei.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
     <bean id="singletonBean" class="java.util.Date"/>
     <bean id="prototypeBean" class="java.util.Date" scope="prototype"/>
 </beans>
