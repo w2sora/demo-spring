@@ -3,6 +3,7 @@ package com.weiwei.service.impl;
 import com.weiwei.dao.UserMapper;
 import com.weiwei.domain.UserDO;
 import com.weiwei.service.MyBatisTestService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +23,7 @@ public class MyBatisTestServiceImpl implements MyBatisTestService {
 
     @Override
     public String queryPassword(String username) {
-        String password = "";
+        String password = StringUtils.EMPTY;
 
         List<UserDO> userList = mapper.selectByUsername(username);
         for (UserDO user : userList) {
