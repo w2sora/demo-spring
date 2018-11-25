@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 引入JDBC配置文件 -->
+    <context:property-placeholder location="classpath:config/DBConfig.yml"/>
 
     <!-- 配置数据源，使用Druid数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
-        <!-- <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/> -->
-        <property name="url" value="jdbc:mysql://192.168.0.200:3306/springDB?useSSL=false"/>
-        <property name="username" value="weiwei"/>
-        <property name="password" value="weiwei"/>
+        <!-- Druid会根据url自动识别常见驱动类名，因此无需配置 -->
+        <!-- <property name="driverClassName" value="${jdbc_driver}"/> -->
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
 
         <!-- 配置监控统计拦截的filters -->
         <property name="filters" value="stat"/>

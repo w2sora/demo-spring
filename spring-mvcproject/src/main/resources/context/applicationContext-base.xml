@@ -15,18 +15,21 @@
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <!-- 开启事务注解的支持 -->
+    <!-- 开启事务注解的支持，引用上面配置的事务管理器 -->
     <tx:annotation-driven transaction-manager="txManager"/>
 
-    <!-- 配置MyBatis的SqlSessionFactory -->
+    <!-- 配置SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <!-- 配置MyBatis扫描Mapper.xml文件 -->
         <property name="mapperLocations" value="classpath:mybatis/com/weiwei/mapper/*Mapper.xml"/>
     </bean>
 
-    <!-- 配置MyBatis扫描Mapper接口 -->
+    <!-- 配置MyBatis扫描DAO接口 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.weiwei.dao"/>
+        <!-- 如果配置该属性，则DAO接口只有使用了对应注解，才会被加载 -->
+        <!-- <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/> -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
