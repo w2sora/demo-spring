@@ -2,7 +2,7 @@ package com.weiwei.domain;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserDO implements Serializable {
     private static final long serialVersionUID = 8049502768126755526L;
 
     private Integer id;

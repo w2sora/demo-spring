@@ -1,6 +1,6 @@
 package com.weiwei.controller.mybatis;
 
-import com.weiwei.domain.User;
+import com.weiwei.domain.UserDO;
 import com.weiwei.service.MyBatisTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class MyBatisTestController {
 
     @PutMapping("/user/{user}")
     @ResponseBody
-    public String test2(@PathVariable("user") String username, @RequestBody User user) {
+    public String test2(@PathVariable("user") String username, @RequestBody UserDO user) {
         int result = service.updateUser(user, username);
         if (result > 0) {
             return "修改成功！";
@@ -46,7 +46,7 @@ public class MyBatisTestController {
 
     @PostMapping("/user")
     @ResponseBody
-    public String test4(@RequestBody User user) {
+    public String test4(@RequestBody UserDO user) {
         int result = service.insertUser(user);
         if (result > 0) {
             return "新增成功！";

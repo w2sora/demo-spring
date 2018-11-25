@@ -3,7 +3,7 @@
 
 <mapper namespace="com.weiwei.dao.UserMapper">
 
-    <resultMap id="userMap" type="com.weiwei.domain.User">
+    <resultMap id="userMap" type="com.weiwei.domain.UserDO">
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
@@ -47,7 +47,7 @@
             username = #{username}
     </delete>
 
-    <insert id="insert" parameterType="com.weiwei.domain.User">
+    <insert id="insert" parameterType="com.weiwei.domain.UserDO">
         INSERT INTO test (username, password)
         VALUES (
             #{username}, #{password}

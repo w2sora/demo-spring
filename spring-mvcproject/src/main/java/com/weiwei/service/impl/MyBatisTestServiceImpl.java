@@ -1,7 +1,7 @@
 package com.weiwei.service.impl;
 
 import com.weiwei.dao.UserMapper;
-import com.weiwei.domain.User;
+import com.weiwei.domain.UserDO;
 import com.weiwei.service.MyBatisTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +24,8 @@ public class MyBatisTestServiceImpl implements MyBatisTestService {
     public String queryPassword(String username) {
         String password = "";
 
-        List<User> userList = mapper.selectByUsername(username);
-        for (User user : userList) {
+        List<UserDO> userList = mapper.selectByUsername(username);
+        for (UserDO user : userList) {
             password = user.getPassword();
         }
 
@@ -33,7 +33,7 @@ public class MyBatisTestServiceImpl implements MyBatisTestService {
     }
 
     @Override
-    public int updateUser(User user, String username) {
+    public int updateUser(UserDO user, String username) {
         int result;
 
         result = mapper.updateByUsername(user, username);
@@ -51,7 +51,7 @@ public class MyBatisTestServiceImpl implements MyBatisTestService {
     }
 
     @Override
-    public int insertUser(User user) {
+    public int insertUser(UserDO user) {
         int result;
 
         result = mapper.insert(user);
