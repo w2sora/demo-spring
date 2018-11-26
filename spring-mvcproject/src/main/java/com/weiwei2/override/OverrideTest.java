@@ -1,4 +1,4 @@
-package com.weiwei.test;
+package com.weiwei2.override;
 
 public class OverrideTest {
     public static void main(String[] args) {
