@@ -1,18 +1,18 @@
 package com.weiwei.controller.mybatis;
 
 import com.weiwei.domain.UserDO;
-import com.weiwei.service.MyBatisTestService;
+import com.weiwei.service.MyBatisDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/mybatis")
-public class MyBatisTestController {
+public class MyBatisDemoController {
 
-    private final MyBatisTestService service;
+    private final MyBatisDemoService service;
 
     @Autowired
-    public MyBatisTestController(MyBatisTestService service) {
+    public MyBatisDemoController(MyBatisDemoService service) {
         this.service = service;
     }
 

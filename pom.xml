@@ -11,7 +11,6 @@
 
     <modules>
         <module>spring-concurrent</module>
-        <module>spring-mvcdemo</module>
         <module>spring-mvcproject</module>
         <module>spring-nettydemo</module>
         <module>spring-otherdemo</module>

@@ -2,7 +2,7 @@ package com.weiwei.service.impl;
 
 import com.weiwei.dao.UserMapper;
 import com.weiwei.domain.UserDO;
-import com.weiwei.service.MyBatisTestService;
+import com.weiwei.service.MyBatisDemoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +12,12 @@ import java.util.List;
 
 @Transactional
 @Service
-public class MyBatisTestServiceImpl implements MyBatisTestService {
+public class MyBatisDemoServiceImpl implements MyBatisDemoService {
 
     private final UserMapper mapper;
 
     @Autowired
-    public MyBatisTestServiceImpl(UserMapper mapper) {
+    public MyBatisDemoServiceImpl(UserMapper mapper) {
         this.mapper = mapper;
     }
 

@@ -1,4 +1,4 @@
-package com.weiwei.soundsystem;
+package com.javaconfig.soundsystem;
 
 public interface CompactDisc {
     void play();

@@ -2,7 +2,7 @@ package com.weiwei.service;
 
 import com.weiwei.domain.UserDO;
 
-public interface MyBatisTestService {
+public interface MyBatisDemoService {
 
     String queryPassword(String username);
 

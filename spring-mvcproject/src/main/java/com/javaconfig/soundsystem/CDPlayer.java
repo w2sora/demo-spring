@@ -1,4 +1,4 @@
-package com.weiwei.soundsystem;
+package com.javaconfig.soundsystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

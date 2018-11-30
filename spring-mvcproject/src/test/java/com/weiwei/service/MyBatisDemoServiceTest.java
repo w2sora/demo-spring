@@ -1,6 +1,5 @@
-package com.weiwei.test;
+package com.weiwei.service;
 
-import com.weiwei.service.MyBatisTestService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,12 +12,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "classpath:context/applicationContext-base.xml", "classpath:context/applicationContext-dataSource.xml"})
-public class MyBatisTest {
+public class MyBatisDemoServiceTest {
     // private static Logger logger = null;
-    private static final Logger logger = LoggerFactory.getLogger(MyBatisTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyBatisDemoServiceTest.class);
 
     @Autowired
-    private MyBatisTestService service;
+    private MyBatisDemoService service;
 
     @BeforeClass
     public static void setLogger() {
@@ -34,4 +33,5 @@ public class MyBatisTest {
         String password = service.queryPassword(username);
         logger.warn("查询成功，密码为：{}", password);
     }
+
 }

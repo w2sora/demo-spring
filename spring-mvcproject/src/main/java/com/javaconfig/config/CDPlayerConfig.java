@@ -1,10 +1,10 @@
-package com.weiwei.config;
+package com.javaconfig.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "com.weiwei.soundsystem")
+@ComponentScan(basePackages = "com.javaconfig.soundsystem")
 public class CDPlayerConfig {
 
     // @Bean(name = "lonelyHeart")
