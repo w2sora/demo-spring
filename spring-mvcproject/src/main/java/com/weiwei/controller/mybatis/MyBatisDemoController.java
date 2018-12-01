@@ -3,9 +3,11 @@ package com.weiwei.controller.mybatis;
 import com.weiwei.domain.UserDO;
 import com.weiwei.service.MyBatisDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/mybatis")
 public class MyBatisDemoController {
 
@@ -17,9 +19,12 @@ public class MyBatisDemoController {
     }
 
     @GetMapping("/user/{user}")
-    @ResponseBody
-    public String test1(@PathVariable("user") String username) {
-        return service.queryPassword(username);
+    // @ResponseBody
+    public String test1(@PathVariable("user") String username, ModelMap modelMap) {
+        String password = service.queryPassword(username);
+        modelMap.put("username", username);
+        modelMap.put("password", password);
+        return "/mybatis/mybatis";
     }
 
     @PutMapping("/user/{user}")
