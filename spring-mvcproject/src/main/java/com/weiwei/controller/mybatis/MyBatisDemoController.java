@@ -22,6 +22,7 @@ public class MyBatisDemoController {
     // @ResponseBody
     public String test1(@PathVariable("user") String username, ModelMap modelMap) {
         // public String test1(@PathVariable("user") String username, Model model) {
+        // public String test1(@PathVariable("user") String username, Map<String, String> map) {
         // public ModelAndView test1(@PathVariable("user") String username) {
 
         String password = service.queryPassword(username);
@@ -30,6 +31,9 @@ public class MyBatisDemoController {
 
         // model.addAttribute("username", username);
         // model.addAttribute("password", password);
+
+        // map.put("username", username);
+        // map.put("password", password);
 
         // ModelAndView mav = new ModelAndView("/mybatis/mybatis");
         // mav.addObject("username", username);
@@ -71,4 +75,5 @@ public class MyBatisDemoController {
             return "新增失败！";
         }
     }
+
 }
