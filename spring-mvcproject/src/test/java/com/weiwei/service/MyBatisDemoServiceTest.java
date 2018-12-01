@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "classpath:context/applicationContext-base.xml", "classpath:context/applicationContext-dataSource.xml"})
@@ -31,7 +33,7 @@ public class MyBatisDemoServiceTest {
     public void testQueryPassword() {
         String username = "weiwei";
         String password = service.queryPassword(username);
-        logger.warn("查询成功，密码为：{}", password);
+        logger.info("password: {}", password);
+        assertEquals("123456", password);
     }
-
 }
