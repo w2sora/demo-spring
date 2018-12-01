@@ -21,9 +21,21 @@ public class MyBatisDemoController {
     @GetMapping("/user/{user}")
     // @ResponseBody
     public String test1(@PathVariable("user") String username, ModelMap modelMap) {
+        // public String test1(@PathVariable("user") String username, Model model) {
+        // public ModelAndView test1(@PathVariable("user") String username) {
+
         String password = service.queryPassword(username);
-        modelMap.put("username", username);
-        modelMap.put("password", password);
+        modelMap.put("username", username); // put允许传null
+        modelMap.addAttribute("password", password); // 先判断不可为null，再调用put
+
+        // model.addAttribute("username", username);
+        // model.addAttribute("password", password);
+
+        // ModelAndView mav = new ModelAndView("/mybatis/mybatis");
+        // mav.addObject("username", username);
+        // mav.addObject("password", password);
+        // return mav;
+
         return "/mybatis/mybatis";
     }
 
