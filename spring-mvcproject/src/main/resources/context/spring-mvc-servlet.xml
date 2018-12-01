@@ -15,4 +15,8 @@
     <!-- 配置该标签用于处理请求映射，决定是哪个Controller的哪个方法来处理当前请求，以及相关的异常处理 -->
     <!-- 该标签如果不配置，也可以正常处理请求映射，原因可Debug DispatcherServlet的源码，它会从DispatcherServlet.properties加载默认配置 -->
     <mvc:annotation-driven/>
+
+    <!-- 配置网页的favorite icon -->
+    <mvc:resources mapping="/favicon.ico" location="/static/favicon.ico"/>
+
 </beans>
