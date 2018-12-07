@@ -4,6 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- 引用JavaConfig -->
+    <bean class="com.config.ScopeTestConfiguration"/>
+
     <context:component-scan base-package="com.weiwei">
         <!-- 扫描时排除带有@Controller、@RestController注解的类 -->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -32,7 +35,4 @@
         <!-- <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/> -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-
-    <bean id="singletonBean" class="java.util.Date"/>
-    <bean id="prototypeBean" class="java.util.Date" scope="prototype"/>
 </beans>
