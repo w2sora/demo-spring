@@ -9,16 +9,18 @@ import org.slf4j.LoggerFactory;
 public class Audience {
     private static final Logger log = LoggerFactory.getLogger(Audience.class);
 
-    @Pointcut("execution(* com.aspect.Performance.perform(..))")
-    public void performance() {
+    // @Pointcut("execution(* com.aspect.Performance.perform(..))")
+    @Pointcut("execution(* com.aspect.Performance.perform(String)) && args(str)")
+    public void performance(String str) {
     }
 
-    @Around("performance()")
-    public void watchPerformance(ProceedingJoinPoint joinPoint) {
+    @Around("performance(str)")
+    public void watchPerformance(ProceedingJoinPoint joinPoint, String str) {
         try {
             log.info("关手机");
             log.info("坐下");
             joinPoint.proceed();
+            log.warn(str);
             log.info("LL大法好！");
         } catch (Throwable throwable) {
             log.info("LL大法不好");

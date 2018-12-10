@@ -11,11 +11,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
         "classpath:context/applicationContext-base.xml", "classpath:context/applicationContext-dataSource.xml"})
 public class PerformanceTest {
 
+    private static final String STR = "Nico Nico Ni~";
+
     @Autowired
     private Performance performance;
 
     @Test
     public void testPerformance() {
-        performance.perform();
+        performance.perform(STR);
     }
+
 }

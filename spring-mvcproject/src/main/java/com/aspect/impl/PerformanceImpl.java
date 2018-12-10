@@ -10,8 +10,8 @@ public class PerformanceImpl implements Performance {
     private static final Logger log = LoggerFactory.getLogger(PerformanceImpl.class);
 
     @Override
-    public void perform() {
-        log.info("Nico Nico Ni~");
+    public void perform(String string) {
+        log.info(string);
         // throw new RuntimeException();
     }
 }
