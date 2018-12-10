@@ -11,6 +11,7 @@
 
     <modules>
         <module>spring-concurrent</module>
+        <module>spring-mvcpdemo</module>
         <module>spring-mvcproject</module>
         <module>spring-nettydemo</module>
         <module>spring-otherdemo</module>
@@ -245,5 +246,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>
