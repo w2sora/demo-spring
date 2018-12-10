@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Scope;
 import java.util.Date;
 
 @Configuration
-public class ScopeTestConfiguration {
+public class ScopeTestConfig {
     @Bean("singletonBean")
     public Date getDate() {
         return new Date();
