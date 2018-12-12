@@ -2,6 +2,9 @@ package config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 public class DemoWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     /**
@@ -23,5 +26,12 @@ public class DemoWebAppInitializer extends AbstractAnnotationConfigDispatcherSer
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setLoadOnStartup(1);
+        registration.setMultipartConfig(
+                new MultipartConfigElement("/tmp/uploads")); // 配置文件上传
     }
 }
