@@ -1,10 +1,12 @@
 package web.com.weiwei.controller.mybatis;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import web.com.weiwei.domain.UserDO;
+import web.com.weiwei.exceptionHandler.UserNotFoundException;
 import web.com.weiwei.service.MyBatisDemoService;
 
 @Controller
@@ -26,21 +28,25 @@ public class MyBatisDemoController {
         // public ModelAndView test1(@PathVariable("user") String username) {
 
         String password = service.queryPassword(username);
-        modelMap.put("username", username); // put允许传null
-        modelMap.addAttribute("password", password); // 先判断不可为null，再调用put
+        if (StringUtils.isNotBlank(password)) {
+            modelMap.put("username", username); // put允许传null
+            modelMap.addAttribute("password", password); // 先判断不可为null，再调用put
 
-        // model.addAttribute("username", username);
-        // model.addAttribute("password", password);
+            // model.addAttribute("username", username);
+            // model.addAttribute("password", password);
 
-        // map.put("username", username);
-        // map.put("password", password);
+            // map.put("username", username);
+            // map.put("password", password);
 
-        // ModelAndView mav = new ModelAndView("/mybatis/mybatis");
-        // mav.addObject("username", username);
-        // mav.addObject("password", password);
-        // return mav;
+            // ModelAndView mav = new ModelAndView("/mybatis/mybatis");
+            // mav.addObject("username", username);
+            // mav.addObject("password", password);
+            // return mav;
 
-        return "/mybatis/mybatis";
+            return "/mybatis/mybatis";
+        } else {
+            throw new UserNotFoundException();
+        }
     }
 
     @PutMapping("/user/{user}")
@@ -75,5 +81,4 @@ public class MyBatisDemoController {
             return "新增失败！";
         }
     }
-
 }
