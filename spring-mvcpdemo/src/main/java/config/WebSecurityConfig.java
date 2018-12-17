@@ -45,5 +45,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/mybatis/user/**").hasRole("USER")
                 .antMatchers(HttpMethod.POST, "/mybatis/user").authenticated()
                 .anyRequest().permitAll();
+        // 自定义登录页
+        http.formLogin().loginPage("/login");
+        // 启用HTTP Basic认证
+        http.httpBasic();
+        // 启用RememberMe功能
+        http.rememberMe()
+                .tokenValiditySeconds(2419200) // token有效时间
+                .key("weiwei"); // token的私钥名
     }
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<style>
+    .formDiv {
+        height: 700px;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        text-align: center;
+    }
+</style>
+<body onload="document.loginForm.username.focus();">
+<div id="content" class="formDiv">
+    <form name="loginForm" th:action="@{/login}" method="post">
+        <table>
+            <tr>
+                <td><label for="username">用户名：</label></td>
+                <td><input type="text" id="username" name="username" value=""></td>
+            </tr>
+            <tr>
+                <td><label for="password">密&ensp;&ensp;码：</label></td>
+                <td><input type="password" id="password" name="password"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>
+                        <input id="remember_me" name="remember-me" type="checkbox">
+                        记住我
+                        <span>不是自己的电脑请勿勾选</span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input name="submit" type="submit" value="登录">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
