@@ -32,6 +32,8 @@ public class DemoWebAppInitializer extends AbstractAnnotationConfigDispatcherSer
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setLoadOnStartup(1);
         registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp/uploads")); // 配置文件上传
+                // 配置Multipart文件上传
+                new MultipartConfigElement("/tmp/uploads",
+                        2 * 1024 * 1024, 4 * 1024 * 1024, 0));
     }
 }
