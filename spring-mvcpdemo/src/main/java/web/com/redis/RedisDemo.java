@@ -1,14 +1,17 @@
 package web.com.redis;
 
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
-public class RedisDemo {
+class RedisDemo {
 
-    public String redisString(RedisConnectionFactory redisConnectionFactory) {
-        RedisConnection conn = redisConnectionFactory.getConnection();
-        byte[] bytes = conn.get("foo".getBytes());
-        return new String(bytes != null ? bytes : new byte[0]);
+    private static final Logger log = LoggerFactory.getLogger(RedisDemo.class);
+
+    String redisString(StringRedisTemplate redis) {
+        String s = redis.opsForValue().get("foo");
+        log.info("########## foo: {} ##########", s);
+
+        return s;
     }
-
 }
