@@ -18,7 +18,7 @@ public class RedisDemoTest {
     private StringRedisTemplate template;
 
     @Test
-    public void redisStringTest() {
+    public void testRedisString() {
         RedisDemo demo = new RedisDemo();
         String s = demo.redisString(template);
         assertEquals("bar", s);
