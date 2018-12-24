@@ -25,7 +25,7 @@ public class MyBatisDemoServiceImpl implements MyBatisDemoService {
         this.mapper = mapper;
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER') and #username.length() >= 5")
     // @Cacheable(value = CACHE_NAME, key = "#root.args")
     @Cacheable(value = CACHE_NAME, key = "#username")
     @Override
