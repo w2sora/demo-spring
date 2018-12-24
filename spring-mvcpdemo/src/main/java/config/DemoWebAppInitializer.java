@@ -1,5 +1,8 @@
 package config;
 
+import config.rootConfig.RootConfig;
+import config.securityConfig.SecurityConfig;
+import config.webConfig.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;

@@ -1,4 +1,4 @@
-package config;
+package config.rootConfig;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

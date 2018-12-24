@@ -1,6 +1,6 @@
 package web.com.redis;
 
-import config.RootConfig;
+import config.rootConfig.RootConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
