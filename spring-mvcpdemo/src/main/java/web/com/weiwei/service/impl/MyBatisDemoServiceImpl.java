@@ -3,6 +3,7 @@ package web.com.weiwei.service.impl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.com.weiwei.dao.UserMapper;
@@ -24,6 +25,7 @@ public class MyBatisDemoServiceImpl implements MyBatisDemoService {
         this.mapper = mapper;
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     // @Cacheable(value = CACHE_NAME, key = "#root.args")
     @Cacheable(value = CACHE_NAME, key = "#username")
     @Override
